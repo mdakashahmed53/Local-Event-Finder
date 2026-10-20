@@ -3,6 +3,7 @@ import 'package:local_event_finder/presentation/screens/home/widgets/event_card.
 import 'package:provider/provider.dart';
 
 import '../../providers/event_provider.dart';
+import '../event/event_details.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -41,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             itemBuilder: (context, index) {
               final event = provider.events[index];
               return EventCard(event: event, onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Text('dj')));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => EventDetails(eventId: event.id)));
               });
             },
           );
